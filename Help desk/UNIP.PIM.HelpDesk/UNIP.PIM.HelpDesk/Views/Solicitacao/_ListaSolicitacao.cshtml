@@ -1,0 +1,29 @@
+﻿@model UNIP.PIM.HelpDesk.DTO.SolicitacaoChamado.IndexSolicitacao
+
+<div class="table-responsive">
+	<table id="GridSolicitacao" class="table table-hover">
+		<thead>
+			<tr>
+				<th class="col-md-4">Descrição</th>
+				<th class="col-md-4">Grupo</th>
+				<th class="col-md-2">Ativo</th>
+				<th class="col-md-2 text-center"></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model.ListaSolicitacao)
+			{
+				<tr>
+					<td class="col-md-4">@item.Descricao</td>
+					<td class="col-md-4">@item.Grupo</td>
+                    <td class="col-md-4">
+                        @Html.CheckBox("ativo", item.Ativo, new { OnClick = $"alterarStatus(this,{item.IdSolicitacao})" })
+                    </td>
+					<td class="col-md-4">
+						<a href="@Url.Action("Editar", new { id=item.IdSolicitacao})">Editar</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

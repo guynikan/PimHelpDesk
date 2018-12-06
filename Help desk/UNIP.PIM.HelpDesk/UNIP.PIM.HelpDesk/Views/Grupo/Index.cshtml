@@ -1,0 +1,42 @@
+﻿@model UNIP.PIM.HelpDesk.DTO.Grupo.IndexGrupo
+
+@{
+	var titulo = "Grupo";
+}
+
+<div class="card card-register mx-auto col-md-12">
+	<div class="card-header">@titulo</div>
+	<div class="card-body">
+	</div>
+    <div class="row">
+        <div class="col-md-12 form-group text-right">
+            <a href="@Url.Action("Editar")">Novo</a>
+        </div>
+    </div>
+	<div class="row">
+		<div class="col-md-12">
+			<section class="panel">
+				<div class="panel-body">
+					@Html.Partial("_ListaGrupo")
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+@section scripts
+{
+	<script type="text/javascript">
+
+		$(document).ready(function () {
+			$('#GridGrupos').DataTable();
+		});
+
+        function alterarStatus(status, idGrupo) {
+            var checkado = status.checked;
+
+            var url = '@Url.Action("AlterarStatus")' + "?idGrupo=" + idGrupo + "&status=" + checkado;
+
+            window.location.href = url;
+        }
+	</script>
+}

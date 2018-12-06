@@ -1,0 +1,95 @@
+﻿@{
+    var titulo = Model.IdUsuario > 0 ? "Editar Usuário" : "Incluir Usuário";
+}
+@model UNIP.PIM.HelpDesk.DTO.Usuario.Usuario
+
+<div class="card card-register mx-auto col-md-12">
+    <div class="card-header">@titulo</div>
+    <div class="card-body">
+    </div>
+    @using (Html.BeginForm("Incluir", "Usuario", FormMethod.Post, new { @role = "form", @id = "frmUsuario" }))
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.HiddenFor(x => x.IdUsuario)
+                    <div class="form-row">
+                        <div class="col-md-9">
+                            <label for="exampleInputName">Nome</label>
+                            @Html.TextBoxFor(x => x.Nome, new { @class = "form-control", @placeholder = "Nome", @maxlength = "100", @required="true" })
+                        </div>
+                        <div class="col-md-1 text-center">
+                            <label>Ativo</label><br />
+                            @Html.CheckBoxFor(x => x.Ativo, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="exampleInputPassword1">Email</label>
+                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Email", @maxlength = "100", @required = "true" })
+                        </div>
+                        <div class="col-md-3">
+                            <label for="exampleConfirmPassword">Senha</label>
+                            @Html.TextBoxFor(x => x.Senha, new { @class = "form-control", @placeholder = "Senha", @type="password", @maxlength="8", @required = "true" })
+                        </div>
+                        <div class="col-md-3">
+                            <label for="exampleInputPassword1">Cliente</label>
+                            @Html.DropDownListFor(x => x.IdCliente, (SelectList)ViewBag.Cliente, "Selecione", new { @class = "form-control", @required = "true" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary pull-right">Salvar</button>&nbsp;
+                    <a href="@Url.Action("Index")" class="btn btn-default pull-right">Cancelar</a>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <label for="exampleConfirmPassword">Grupos</label>
+                        </div>
+                      
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        @for (int i = 0; i < Model.Grupos.Count; i++)
+                        {
+                            <div class="col-md-12">
+                                <div class="input-group col-md-2">
+                                    @Html.HiddenFor(x => Model.Grupos[i].IdGrupo)
+                                    @Html.CheckBoxFor(x => Model.Grupos[i].Selecionado, new { @class = "form-control" })
+                                    <label>@Model.Grupos[i].Descricao</label>
+                                </div>
+                            </div>
+                        }
+                        <div class="col-md-12">
+                            <label for="exampleConfirmPassword">Perfis</label>
+                        </div>
+                        @for (int i=0; i<Model.Perfis.Count; i++)
+                        {
+                            <div class="col-md-12">
+                                <div class="input-group col-md-2">
+                                    @Html.HiddenFor(x => Model.Perfis[i].IdPerfil)
+                                    @Html.CheckBoxFor(x => Model.Perfis[i].Selecionado, new { @class = "form-control" })
+                                    <label>@Model.Perfis[i].Descricao</label>
+                                </div>
+                            </div>
+                        }
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+          
+        });
+    </script>
+}

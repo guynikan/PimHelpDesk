@@ -1,0 +1,157 @@
+﻿@{
+    var titulo = Model.IdChamado > 0 ? "Editar Chamado" : "Incluir Chamado";
+}
+@model UNIP.PIM.HelpDesk.DTO.Chamado.Chamado
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+
+<div class="card card-register mx-auto col-md-12">
+    <div class="card-header">@titulo</div>
+    <div class="card-body">
+    </div>
+    @using (Html.BeginForm("Incluir", "Chamado", FormMethod.Post, new { @role = "form", @id = "frmChamado" }))
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.HiddenFor(x => x.IdChamado)
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <label for="exampleInputName">Título</label>
+                            @Html.TextBoxFor(x => x.Titulo, new { @class = "form-control", @placeholder = "Título", @maxlength="100", @required="true" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="exampleInputPassword1">Cliente</label>
+                            @Html.DropDownListFor(x => x.IdCliente, (SelectList)ViewBag.Cliente, "Selecione", new { @class = "form-control", @readOnly = true })
+                        </div>
+                        <div class="col-md-6">
+                            <label for="exampleInputPassword1">Solicitante</label>
+                            @Html.DropDownListFor(x => x.IdUsuarioAbertura, (SelectList)ViewBag.Usuario, "Selecione", new { @class = "form-control", @readonly=true })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        @if (Model.IdChamado > 0)
+                        {
+                            <div class="col-md-6">
+                                <label for="exampleInputPassword1">Solicitação</label>
+                                @Html.DropDownListFor(x => x.IdSolicitacao, (SelectList)ViewBag.Solicitacao, "Selecione", new { @class = "form-control", @readonly="true" })
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-md-6">
+                                <label for="exampleInputPassword1">Solicitação</label>
+                                @Html.DropDownListFor(x => x.IdSolicitacao, (SelectList)ViewBag.Solicitacao, "Selecione", new { @class = "form-control", onChange="preencherGrupo()" })
+                            </div>
+                        }
+
+                        <div class="col-md-6">
+                            <label for="exampleInputPassword1">Grupo</label>
+                            @Html.DropDownListFor(x => x.IdGrupo, (SelectList)ViewBag.Grupo, "Selecione", new { @class = "form-control", @readOnly = true })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="exampleInputPassword1">Status</label>
+                            @Html.DropDownListFor(x => x.IdStatus, (SelectList)ViewBag.Status, "Selecione", new { @class = "form-control", @required="true" })
+                        </div>
+                        @if (Model.UsuarioTecnico == true)
+                        {
+                            <div class="col-md-6">
+                                <label for="exampleInputPassword1">Técnico</label>
+                                @Html.DropDownListFor(x => x.IdTecnico, (SelectList)ViewBag.Tecnico, "Selecione", new { @class = "form-control" })
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-md-6">
+                                <label for="exampleInputPassword1">Técnico</label>
+                                @Html.DropDownListFor(x => x.IdTecnico, (SelectList)ViewBag.Tecnico, "Selecione", new { @class = "form-control", @readOnly = "true" })
+                            </div>
+                        }
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <label for="exampleInputPassword1">Abertura</label>
+                            @Html.TextBoxFor(x => x.DataAbertura, new { @class = "form-control data", @placeholder = "Abertura",@readonly=true })
+                        </div>
+                        <div class="col-md-4">
+                            <label for="exampleInputPassword1">Conclusão Prevista</label>
+                            @Html.TextBoxFor(x => x.DataConclusaoPrevista, new { @class = "form-control data", @placeholder = "Conclusão Prevista", @readonly = true })
+                        </div>
+                        <div class="col-md-4">
+                            <label for="exampleInputPassword1">Fechamento</label>
+                            @Html.TextBoxFor(x => x.DataFechamento, new { @class = "form-control data", @placeholder = "Fechamento", @readOnly = true })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary pull-right">Salvar</button>&nbsp;
+                    <a href="@Url.Action("Index")" class="btn btn-default pull-right">Cancelar</a>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <label for="exampleInputPassword1">Ocorrências</label>
+                        </div>
+                    </div>
+                    @for(int i=0; i< Model.Ocorrencias.Count; i++)
+                    {
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <label for="exampleInputPassword1">@Model.Ocorrencias[i].DataAlteracao - @Model.Ocorrencias[i].Usuario</label>
+                                @Html.HiddenFor(x => Model.Ocorrencias[i].IdUsuarioAlteracao)
+                                @Html.HiddenFor(x => Model.Ocorrencias[i].DataAlteracao)
+                                @Html.HiddenFor(x => Model.Ocorrencias[i].IdOcorrencia)
+                                @Html.TextAreaFor(x => Model.Ocorrencias[i].Descricao, new { @Class="form-control", @rows="3"})
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+         
+        </div>
+       
+    }
+</div>
+@section scripts
+{
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".data").datepicker();
+        });
+
+        function preencherGrupo() {
+            var idSolicitacao = $("#IdSolicitacao").val();
+
+            $.ajax({
+                type: 'GET',
+                url: "@Url.Action("PreencherGrupo")",
+                data: {
+                    idSolicitacao: idSolicitacao
+                },
+                datatype: 'json',
+                success: function (result) {
+                    $("#IdGrupo").val(result);
+                },
+                error: function (result) {
+                    console.log(result.error);
+                },
+            });
+        }
+    </script>
+}

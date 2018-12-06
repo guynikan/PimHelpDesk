@@ -1,0 +1,109 @@
+﻿@{
+    var titulo = Model.IdGrupo > 0 ? "Editar Grupo" : "Incluir Grupo";
+}
+@model UNIP.PIM.HelpDesk.DTO.Grupo.Grupo
+
+<div class="card card-register mx-auto col-md-12">
+    <div class="card-header">@titulo</div>
+    <div class="card-body">
+    </div>
+    @using (Html.BeginForm("Incluir", "Grupo", FormMethod.Post, new { @role = "form", @id = "frmGrupo" }))
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.HiddenFor(x => x.IdGrupo)
+                    <div class="form-row">
+                        <div class="col-md-3">
+                            <label for="exampleInputName">Código</label>
+                            @Html.TextBoxFor(x => x.Codigo, new { @class = "form-control", @placeholder = "Código", @maxlength = "50", @required = "true" })
+                        </div>
+                        <div class="col-md-8">
+                            <label for="exampleInputName">Descrição</label>
+                            @Html.TextBoxFor(x => x.Descricao, new { @class = "form-control", @placeholder = "Descrição", @maxlength = "100", @required = "true" })
+                        </div>
+                        <div class="col-md-1 text-center">
+                            <label>Ativo</label><br />
+                            @Html.CheckBoxFor(x => x.Ativo, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <label for="exampleConfirmPassword">Horário Início</label>
+                            @Html.TextBoxFor(x => x.HorarioInicio, new { @class = "form-control", @placeholder = "Horário Início", @maxlength = "6", @required = "true" })
+                        </div>
+                        <div class="col-md-4">
+                            <label for="exampleInputPassword1">Horário Fim</label>
+                            @Html.TextBoxFor(x => x.HorarioFim, new { @class = "form-control", @placeholder = "Horário Fim", @maxlength = "6", @required = "true" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <label for="exampleConfirmPassword">Dias Trabalhados</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <div class="input-group col-md-2">
+                                @Html.CheckBoxFor(x => x.SegundaDiaUtil, new { @class = "form-control" })
+                                <label>Segunda-Feira</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input-group col-md-2">
+                                @Html.CheckBoxFor(x => x.TercaDiaUtil, new { @class = "form-control" })
+                                <label>Terça-Feira&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input-group col-md-2">
+                                @Html.CheckBoxFor(x => x.QuartaDiaUtil, new { @class = "form-control" })
+                                <label>Quarta-Feira&nbsp;&nbsp;&nbsp;</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input-group col-md-2">
+                                @Html.CheckBoxFor(x => x.QuintaDiaUtil, new { @class = "form-control" })
+                                <label>Quinta-Feira&nbsp;&nbsp;&nbsp;</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input-group col-md-2">
+                                @Html.CheckBoxFor(x => x.SextaDiaUtil, new { @class = "form-control" })
+                                <label>Sexta-Feira&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input-group col-md-2">
+                                @Html.CheckBoxFor(x => x.SabadoDiaUtil, new { @class = "form-control" })
+                                <label>Sábado&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input-group col-md-2">
+                                @Html.CheckBoxFor(x => x.DomingoDiaUtil, new { @class = "form-control" })
+                                <label>Domingo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary pull-right">Salvar</button>&nbsp;
+                    <a href="@Url.Action("Index")" class="btn btn-default pull-right">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+
+    </script>
+}

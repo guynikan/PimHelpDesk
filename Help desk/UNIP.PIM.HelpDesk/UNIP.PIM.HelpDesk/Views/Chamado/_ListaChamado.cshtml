@@ -1,0 +1,37 @@
+﻿@model UNIP.PIM.HelpDesk.DTO.Chamado.IndexChamado
+
+<div class="table-responsive">
+	<table id="GridChamados" class="table table-hover">
+		<thead>
+			<tr>
+				<th class="col-md-1">Número</th>
+				<th class="col-md-2">Título</th>
+				<th class="col-md-2">Técnico</th>
+				<th class="col-md-2">Status</th>
+				<th class="col-md-2">Data de Abertura</th>
+				<th class="col-md-2">Data de Conclusão Prevista</th>
+				<th class="col-md-2">Data de Fechamento</th>
+				<th class="col-md-2">Grupo</th>
+				<th class="col-md-2 text-center"></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model.ListaChamado)
+			{
+			<tr>
+				<td>@item.IdChamado</td>
+				<td>@item.Titulo</td>
+				<td>@item.Tecnico</td>
+				<td>@item.Status</td>
+				<td>@item.DataAbertura</td>
+				<td>@item.DataConclusaoPrevista</td>
+				<td>@item.DataFechamento</td>
+				<td>@item.Grupo</td>
+                <td>
+                    <a href="@Url.Action("Editar", new { id=item.IdChamado})">Editar</a>
+                </td>
+			</tr>
+			}
+		</tbody>
+	</table>
+</div>

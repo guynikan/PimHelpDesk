@@ -1,0 +1,44 @@
+﻿@model UNIP.PIM.HelpDesk.DTO.Cliente.IndexCliente
+
+@{
+	var titulo = "Cliente";
+}
+
+<div class="card card-register mx-auto col-md-12">
+	<div class="card-header">@titulo</div>
+	<div class="card-body">
+	</div>
+    <div class="row">
+        <div class="col-md-12 form-group text-right">
+            <a href="@Url.Action("Editar")">Novo</a>
+        </div>
+    </div>
+	<div class="row">
+		<div class="col-md-12">
+			<section class="panel">
+				<div class="panel-body">
+					@Html.Partial("_ListaCliente")
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+@section scripts
+{
+	<script type="text/javascript">
+
+		$(document).ready(function () {
+			$('#GridClientes').DataTable();
+		});
+
+        function alterarStatus(status, idCliente)
+        {
+            var checkado = status.checked;
+
+            var url = '@Url.Action("AlterarStatus")' + "?idCliente=" + idCliente + "&status=" + checkado;
+
+            window.location.href = url;
+        }
+
+	</script>
+}

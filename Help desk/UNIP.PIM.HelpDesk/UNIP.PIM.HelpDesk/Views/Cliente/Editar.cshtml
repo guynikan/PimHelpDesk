@@ -1,0 +1,100 @@
+﻿@{
+    var titulo = Model.IdCliente > 0 ? "Editar Cliente" : "Novo Cliente";
+}
+@model UNIP.PIM.HelpDesk.DTO.Cliente.Cliente
+
+<div class="card card-register mx-auto col-md-12">
+    <div class="card-header">@titulo</div>
+    <div class="card-body">
+    </div>
+    @using (Html.BeginForm("Incluir", "Cliente", FormMethod.Post, new { @role = "form", @id = "frmCliente" }))
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.HiddenFor(x => x.IdCliente)
+                    <div class="form-row">
+                        <div class="col-md-9">
+                            <label for="exampleInputName">Nome</label>
+                            @Html.TextBoxFor(x => x.NomeFantasia, new { @class = "form-control", @placeholder = "Nome Fantasia", @maxlength="100" })
+                        </div>
+                        <div class="col-md-1 text-center">
+                            <label>Ativo</label><br />
+                            @Html.CheckBoxFor(x => x.Ativo, new { @class = "form-control", data_color = "#13dafe" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="exampleInputPassword1">Razão Social</label>
+                            @Html.TextBoxFor(x => x.RazaoSocial, new { @class = "form-control", @placeholder = "Razão Social", @maxlength = "100", @required="true" })
+                        </div>
+                        <div class="col-md-4">
+                            <label for="exampleInputPassword1">CNPJ</label>
+                            @Html.TextBoxFor(x => x.CNPJ, new { @class = "form-control", @placeholder = "CNPJ", @maxlength = "20" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <label for="exampleInputPassword1">Email</label>
+                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Email", @maxlength = "100",  })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-3">
+                            <label for="exampleInputPassword1">CEP</label>
+                            @Html.TextBoxFor(x => x.Cep, new { @class = "form-control", @placeholder = "CEP", @maxlength = "15", required="true" })
+                        </div>
+                        <div class="col-md-7">
+                            <label for="exampleInputPassword1">Endereço</label>
+                            @Html.TextBoxFor(x => x.Endereco, new { @class = "form-control", @placeholder = "Endereço", @maxlength = "100", @required="true" })
+                        </div>
+                        <div class="col-md-2">
+                            <label for="exampleInputPassword1">Número</label>
+                            @Html.TextBoxFor(x => x.Numero, new { @class = "form-control", @placeholder = "Número", @maxlength = "5", @required="true" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-5">
+                            <label for="exampleInputPassword1">Bairro</label>
+                            @Html.TextBoxFor(x => x.Bairro, new { @class = "form-control", @placeholder = "Bairro", @maxlength = "50", @required = "true" })
+                        </div>
+                        <div class="col-md-5">
+                            <label for="exampleInputPassword1">Cidade</label>
+                            @Html.TextBoxFor(x => x.Cidade, new { @class = "form-control", @placeholder = "Cidade", @maxlength = "50", @required = "true" })
+                        </div>
+                        <div class="col-md-2">
+                            <label for="exampleInputPassword1">UF</label>
+                            @Html.TextBoxFor(x => x.UF, new { @class = "form-control", @placeholder = "UF", @maxlength = "2", @required = "true" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <label for="exampleInputPassword1">Complemento</label>
+                            @Html.TextBoxFor(x => x.Complemento, new { @class = "form-control", @placeholder = "Complemento", @maxlength = "50" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary pull-right">Salvar</button>&nbsp;
+                    <a href="@Url.Action("Index")" class="btn btn-default pull-right">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+
+    </script>
+}

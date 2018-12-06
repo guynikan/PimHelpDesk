@@ -1,0 +1,27 @@
+﻿@model UNIP.PIM.HelpDesk.DTO.Grupo.IndexGrupo
+
+<div class="table-responsive">
+	<table id="GridGrupos" class="table table-hover">
+		<thead>
+			<tr>
+				<th class="col-md-5">Descrição</th>
+				<th class="col-md-2">Ativo</th>
+				<th class="col-md-2 text-center"></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model.ListaGrupo)
+			{
+				<tr>
+					<td class="col-md-4">@item.Descricao</td>
+                    <td class="col-md-4">
+                        @Html.CheckBox("ativo", item.Ativo, new { OnClick = $"alterarStatus(this,{item.IdGrupo})" })
+                    </td>
+					<td class="col-md-4">
+						<a href="@Url.Action("Editar", new { id=item.IdGrupo})">Editar</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

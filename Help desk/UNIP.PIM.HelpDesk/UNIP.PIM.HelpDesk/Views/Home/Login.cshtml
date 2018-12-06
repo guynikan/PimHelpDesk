@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Login da página";
+    Layout = null;
+}
+<!-- Bootstrap core CSS-->
+<link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom fonts for this template-->
+<link href="~/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- Page level plugin CSS-->
+<link href="~/Content/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+<!-- Custom styles for this template-->
+<link href="~/Content/css/sb-admin.css" rel="stylesheet">
+<link href="~/Content/css/CustomStyle.css" rel="stylesheet" />
+<link href="~/Content/plugins/switchery/dist/switchery.min.css" rel="stylesheet" />
+@model UNIP.PIM.HelpDesk.DTO.Login.Login
+
+@using (Html.BeginForm("Logar", "Home", FormMethod.Post, new { @role = "form", @id = "frmLogin" }))
+{
+<div class="card card-login mx-auto mt-5">
+    <div class="card-header">Login</div>
+    <div class="card-body">
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                @Html.TextBoxFor(x=> x.Email, new { @class="form-control"})
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Senha</label>
+                @Html.TextBoxFor(x => x.Senha, new { @class = "form-control", @type="password", @maxlength="8" })
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+    </div>
+</div>
+}

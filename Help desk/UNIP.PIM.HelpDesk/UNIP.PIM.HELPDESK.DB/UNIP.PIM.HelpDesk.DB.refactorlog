@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="4ef2938d-38a5-4f04-82af-c2a5080c5f4f" ChangeDateTime="11/03/2018 23:33:38">
+    <Property Name="ElementName" Value="[dbo].[tblArvoreServico].[IdArvoreServico]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblArvoreServico]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdSolicitacao" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5dd7bdb1-0c4b-4911-9856-b3a5bc72071d" ChangeDateTime="11/03/2018 23:34:16">
+    <Property Name="ElementName" Value="[dbo].[tblChamado].[IdArvoreServico]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblChamado]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdSolicitacao" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="41c57d54-c512-49e2-9ec9-12e8628a63aa" ChangeDateTime="11/15/2018 15:16:41">
+    <Property Name="ElementName" Value="[dbo].[tblGrupo].[IdJornadaTrabalho]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblGrupo]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Segunda" />
+  </Operation>
+</Operations>

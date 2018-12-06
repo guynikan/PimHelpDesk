@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNIP.PIM.HelpDesk.WebApplication", "UNIP.PIM.HelpDesk\UNIP.PIM.HelpDesk.WebApplication.csproj", "{7ACA8BB8-D28E-44CA-B6E5-0571378D6E31}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "UNIP.PIM.HelpDesk.DB", "UNIP.PIM.HELPDESK.DB\UNIP.PIM.HelpDesk.DB.sqlproj", "{707DBFAF-B91D-4C6E-BADD-B1C736460D02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNIP.PIM.HelpDesk.DAL", "UNIP.PIM.HelpDesk.DAO\UNIP.PIM.HelpDesk.DAL.csproj", "{362CD36E-3B28-491D-9F90-CAADBD31342A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNIP.PIM.HelpDesk.BLL", "UNIP.PIM.HelpDesk.BLL\UNIP.PIM.HelpDesk.BLL.csproj", "{2F78DBFF-7C5D-4FCC-9BAB-CF1860B271B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNIP.PIM.HelpDesk.DTO", "UNIP.PIM.HelpDesk.DTO\UNIP.PIM.HelpDesk.DTO.csproj", "{E467804B-FBD2-4B4B-8070-950269F56293}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNIP.PIM.HelpDesk.WindowsForms", "UNIP.PIM.HelpDesk.WindowsForms\UNIP.PIM.HelpDesk.WindowsForms.csproj", "{AE0224D1-2A79-4359-85BF-F0CD5BC7515A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7ACA8BB8-D28E-44CA-B6E5-0571378D6E31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ACA8BB8-D28E-44CA-B6E5-0571378D6E31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ACA8BB8-D28E-44CA-B6E5-0571378D6E31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ACA8BB8-D28E-44CA-B6E5-0571378D6E31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{707DBFAF-B91D-4C6E-BADD-B1C736460D02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{707DBFAF-B91D-4C6E-BADD-B1C736460D02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{707DBFAF-B91D-4C6E-BADD-B1C736460D02}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{707DBFAF-B91D-4C6E-BADD-B1C736460D02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{707DBFAF-B91D-4C6E-BADD-B1C736460D02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{707DBFAF-B91D-4C6E-BADD-B1C736460D02}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{362CD36E-3B28-491D-9F90-CAADBD31342A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{362CD36E-3B28-491D-9F90-CAADBD31342A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{362CD36E-3B28-491D-9F90-CAADBD31342A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{362CD36E-3B28-491D-9F90-CAADBD31342A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F78DBFF-7C5D-4FCC-9BAB-CF1860B271B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F78DBFF-7C5D-4FCC-9BAB-CF1860B271B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F78DBFF-7C5D-4FCC-9BAB-CF1860B271B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F78DBFF-7C5D-4FCC-9BAB-CF1860B271B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E467804B-FBD2-4B4B-8070-950269F56293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E467804B-FBD2-4B4B-8070-950269F56293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E467804B-FBD2-4B4B-8070-950269F56293}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E467804B-FBD2-4B4B-8070-950269F56293}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE0224D1-2A79-4359-85BF-F0CD5BC7515A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE0224D1-2A79-4359-85BF-F0CD5BC7515A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE0224D1-2A79-4359-85BF-F0CD5BC7515A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D093495A-A104-4003-9F34-4EF273DD0D4E}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://pimprojects.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = UNIP.PIM.HelpDesk.BLL\\UNIP.PIM.HelpDesk.BLL.csproj
+		SccProjectName1 = UNIP.PIM.HelpDesk.BLL
+		SccLocalPath1 = UNIP.PIM.HelpDesk.BLL
+		SccProjectUniqueName2 = UNIP.PIM.HelpDesk.DAO\\UNIP.PIM.HelpDesk.DAL.csproj
+		SccProjectName2 = UNIP.PIM.HelpDesk.DAO
+		SccLocalPath2 = UNIP.PIM.HelpDesk.DAO
+		SccProjectUniqueName3 = UNIP.PIM.HELPDESK.DB\\UNIP.PIM.HelpDesk.DB.sqlproj
+		SccProjectName3 = UNIP.PIM.HELPDESK.DB
+		SccLocalPath3 = UNIP.PIM.HELPDESK.DB
+		SccProjectUniqueName4 = UNIP.PIM.HelpDesk.DTO\\UNIP.PIM.HelpDesk.DTO.csproj
+		SccProjectName4 = UNIP.PIM.HelpDesk.DTO
+		SccLocalPath4 = UNIP.PIM.HelpDesk.DTO
+		SccProjectUniqueName5 = UNIP.PIM.HelpDesk\\UNIP.PIM.HelpDesk.WebApplication.csproj
+		SccProjectName5 = UNIP.PIM.HelpDesk
+		SccLocalPath5 = UNIP.PIM.HelpDesk
+		SccProjectUniqueName6 = UNIP.PIM.HelpDesk.WindowsForms\\UNIP.PIM.HelpDesk.WindowsForms.csproj
+		SccProjectName6 = UNIP.PIM.HelpDesk.WindowsForms
+		SccLocalPath6 = UNIP.PIM.HelpDesk.WindowsForms
+	EndGlobalSection
+EndGlobal
